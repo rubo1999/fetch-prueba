@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
     <h1>prueba</h1>
+    <ul></ul>
+    <script>
+
+        const lista = document.querySelector("ul");
+
+        fetch("prueba.txt")
+        .then(respuesta => respuesta.text())
+        .then(contenido => {
+            contenido.split(",").sort().forEach(nombre => {
+                let item = document.createElement("li");
+                item.innerText = nombre;
+                lista.appendChild(item);
+            });
+        });
+
+    </script>
 </body>
 </html>
